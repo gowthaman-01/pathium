@@ -311,15 +311,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         let edgeIndex = 0;
 
         for (let i = 0; i < nodes.length; i++) {
+            if (nodes[i] === Infinity) {
+                continue;
+            }
+
             const { row, col } = getRowAndColumnFromCellId(i);
+
             vl[i] = {
                 x: col * cellSize + cellSize / 2 + xOffset,
                 y: row * cellSize + cellSize / 2,
             };
-
-            if (nodes[i] === Infinity) {
-                continue;
-            }
 
             for (const neighbor of graph[i]) {
                 if (nodes[neighbor] === Infinity) {

@@ -349,9 +349,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             endNode: globalVariablesManager.getEndNode(),
         });
         globalVariablesManager.setGraphType(GraphType.Custom);
-        if (globalVariablesManager.getEnvironmentType() === EnvironmentType.FlatTerrain) {
-            globalVariablesManager.setEnvironmentType(EnvironmentType.RoadNetwork);
-        }
         globalVariablesManager.saveToLocalStorage();
         window.location.href = 'index.html';
     };
